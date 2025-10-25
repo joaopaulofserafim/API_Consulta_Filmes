@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo TMDb - João Paulo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎬 Catálogo TMDb</h1>
+        <p>Busque atores, explore filmes e veja detalhes completos!</p>
+
+        <hr>
+
+        <h2>🔎 Buscar Atores</h2>
+        <div class="barra-pesquisa">
+            <input type="text" id="atorInput" placeholder="Digite o nome do ator...">
+            <button onclick="buscarAtores()">Buscar</button>
+        </div>
+        <div class="status" id="statusAtores"></div>
+        <div class="grade" id="resultadoAtores"></div>
+
+        <hr>
+
+        <h2>🎞️ Filtrar Filmes</h2>
+        <div class="barra-pesquisa">
+            <select id="generoSelect"></select>
+            <input type="number" id="anoInput" placeholder="Ano">
+            <select id="idiomaSelect">
+                <option value="">Idioma</option>
+                <option value="pt">Português</option>
+                <option value="en">Inglês</option>
+                <option value="es">Espanhol</option>
+                <option value="fr">Francês</option>
+            </select>
+            <button onclick="filtrarFilmes()">Filtrar</button>
+        </div>
+        <div class="status" id="statusFilmes"></div>
+        <div class="grade" id="resultadoFilmes"></div>
+
+        <hr>
+
+        <h2>📖 Detalhes do Filme</h2>
+        <div class="status" id="statusDetalhes">Selecione um filme para ver os detalhes.</div>
+        <div id="detalhesFilme"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
