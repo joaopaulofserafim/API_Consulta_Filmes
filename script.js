@@ -121,3 +121,80 @@ async function mostrarDetalhes(id) {
         status.textContent = 'Erro ao carregar detalhes.'; // default caso haja erro
     }
 }
+
+
+
+const formCrud = document.getElementById('formCrud');
+const listaRegistros = document.getElementById('listaRegistrosCrud');
+
+function carregarRegistros() {
+    const registros = JSON.parse(localStorage.getItem('crudRegistros')) || [];
+    listaRegistros.innerHTML = '';
+
+    if (registros.length === 0) {
+        listaRegistros.innerHTML = '<p>Nenhum registro salvo ainda.</p>';
+        return;
+    }
+
+    registros.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.classList.add('registro-item');
+        div.innerHTML = `
+            <strong>${item.nome}</strong>
+            <span>${item.email}</span>
+            <span>Produto: ${item.produto}</span>
+            <button onclick="editarRegistro(${index})">Editar</button>
+            <button  onclick="excluirRegistro(${index})">Excluir</button>
+        `;
+        listaRegistros.appendChild(div);
+    });
+}
+
+formCrud.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const nome = document.getElementById('crudNome').value.trim();
+    const email = document.getElementById('crudEmail').value.trim();
+    const produto = document.getElementById('crudProduto').value.trim();
+    const identificador = document.getElementById('crudIdentificador').value;
+
+    if (!nome || !email || !produto) {
+        alert('Preencha todos os campos!');
+        return;
+    }
+
+    let registros = JSON.parse(localStorage.getItem('crudRegistros')) || [];
+
+    if (formCrud.dataset.editIndex) {
+        registros[formCrud.dataset.editIndex] = { nome, email, produto, identificador };
+        delete formCrud.dataset.editIndex;
+    } else {
+        registros.push({ nome, email, produto, identificador });
+    }
+
+    localStorage.setItem('crudRegistros', JSON.stringify(registros));
+    formCrud.reset();
+    carregarRegistros();
+});
+
+
+function excluirRegistro(index) {
+    let registros = JSON.parse(localStorage.getItem('crudRegistros')) || [];
+    registros.splice(index, 1);
+    localStorage.setItem('crudRegistros', JSON.stringify(registros));
+    carregarRegistros();
+}
+
+
+function editarRegistro(index) {
+    let registros = JSON.parse(localStorage.getItem('crudRegistros')) || [];
+    const item = registros[index];
+
+    document.getElementById('crudNome').value = item.nome;
+    document.getElementById('crudEmail').value = item.email;
+    document.getElementById('crudProduto').value = item.produto;
+
+    formCrud.dataset.editIndex = index;
+}
+
+document.addEventListener('DOMContentLoaded', carregarRegistros);

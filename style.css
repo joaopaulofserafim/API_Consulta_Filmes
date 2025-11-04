@@ -115,3 +115,115 @@ hr {
 .paginacao button:hover {
     background: #475569;
 }
+
+
+/* ===== LOCALSTORAGE CRUD ===== */
+#container-localstorage {
+    background-color: #1e293b;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#container-localstorage h2 {
+    color: #22c5af;
+    margin-bottom: 10px;
+}
+
+#container-localstorage p {
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+/* ===== FORMULÁRIO ===== */
+#formCrud {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #0f172a;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#formCrud div {
+    display: flex;
+    flex-direction: column;
+}
+
+#formCrud label {
+    margin-bottom: 5px;
+    color: #f8fafc;
+    font-weight: bold;
+}
+
+#formCrud input[type="text"],
+#formCrud input[type="email"] {
+    padding: 10px;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    background-color: #1e293b;
+    color: #f8fafc;
+}
+
+#formCrud input[type="text"]:focus,
+#formCrud input[type="email"]:focus {
+    outline: none;
+    border-color: #22c5af;
+    box-shadow: 0 0 4px #22c5af;
+}
+
+#formCrud button {
+    background-color: #22c5af;
+    color: #0f172a;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+#formCrud button:hover {
+    filter: brightness(1.15);
+}
+
+/* ===== LISTA DE REGISTROS ===== */
+#listaRegistrosCrud {
+    margin-top: 20px;
+    display: grid;
+    gap: 12px;
+}
+
+.registro-item {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 15px;
+    color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.registro-item span {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.registro-item button {
+    align-self: flex-start;
+    background-color: #334155;
+    color: #f8fafc;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+
+.registro-item button:last-child:hover {
+    background-color: #ef4444; 
+}
+

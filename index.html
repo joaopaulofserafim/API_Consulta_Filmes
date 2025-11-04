@@ -51,6 +51,37 @@
         <h2>📖 Detalhes do Filme</h2>
         <div class="status" id="statusDetalhes">Selecione um filme para ver os detalhes.</div>
         <div id="detalhesFilme"></div>
+
+
+        <section id="container-localstorage">
+            <h2>Projeto: LocalStorage CRUD</h2>
+            <p>Preencha os dados abaixo para salvar localmente no seu navegador.</p>
+
+            <form id="formCrud">
+                <div>
+                    <label for="crudNome">Nome:</label>
+                    <input type="text" id="crudNome" required>
+                </div>
+                <div>
+                    <label for="crudEmail">E-mail:</label>
+                    <input type="email" id="crudEmail" required>
+                </div>
+                <div>
+                    <label for="crudProduto">Filme Desejado:</label>
+                    <input type="text" id="crudProduto" required>
+                </div>
+
+                <input type="hidden" id="crudIdentificador"
+                    value="Cadastrado por João Vitor Reis Alves, RM: 1142436560">
+
+                <button type="submit">Solicitar</button>
+            </form>
+
+            <hr>
+
+            <h2>Registros Salvos (LocalStorage)</h2>
+            <div id="listaRegistrosCrud"></div>
+        </section>
     </div>
 
     <script src="script.js"></script>
